@@ -3,11 +3,13 @@
 
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-          <a class="nav-item nav-link" routerLink="/listProvider" routerLinkActive="active">Liste Provider</a>
-          <a class="nav-item nav-link" routerLink="/addProvider" routerLinkActive="active">Ajouter Provider</a>
-          <a class="nav-item nav-link" routerLink="/listArticle" routerLinkActive="active">Liste Article</a>
-          <a class="nav-item nav-link" routerLink="/addArticle" routerLinkActive="active">Ajouter Article</a>
-      </div>
+          <a class="nav-item nav-link" *ngIf="loginService.isUserLoggedIn()" routerLink="/listProvider" routerLinkActive="active">Liste Provider</a>
+          <a class="nav-item nav-link" *ngIf="loginService.isUserLoggedIn()" routerLink="/addProvider" routerLinkActive="active">Ajouter Provider</a>
+          <a class="nav-item nav-link" *ngIf="loginService.isUserLoggedIn()" routerLink="/listArticle" routerLinkActive="active">Liste Article</a>
+          <a class="nav-item nav-link" *ngIf="loginService.isUserLoggedIn()" routerLink="/addArticle" routerLinkActive="active">Ajouter Article</a>
+          <a class="nav-item nav-link" *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
+          <a class="nav-item nav-link" *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" routerLinkActive="active">Logout</a>
+        </div>
   </div>
 </nav>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
