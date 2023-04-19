@@ -15,13 +15,13 @@ export class ArticleService {
   }
 
 
-  createArticle(myform:any, id:any) {
+  createArticle(myform:any) {
     this.article = {
       'label': myform.value.articlelabel,
       'price': myform.value.articlePrice,
       'picture': myform.value.articlePicture
     }
-    return this.Http.post(this.urlArticles + '/add/'+id, this.article);
+    return this.Http.post(this.urlArticles + '/add/'+ myform.value.providerId, this.article);
   }
 
 }
